@@ -13,7 +13,6 @@
 				"tags": ["shrink"],
 				"description": "Shrink",
 				"operationId": "Shrink",
-				"produces": ["image/jpeg"],
 				"parameters": [{
                         "name": "Attachment",
 						"in": "formData",
