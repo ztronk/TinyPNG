@@ -5,10 +5,10 @@
 		"description": "API for TinyPNG",
 		"version": "1.0.0.0"
 	},
-	"host": "https://api.tinify.com/",
+	"host": "api.tinify.com",
 	"schemes": ["https"],
 	"paths": {
-		"shrink": {
+		"/shrink": {
 			"post": {
 				"tags": ["shrink"],
 				"description": "Shrink",
