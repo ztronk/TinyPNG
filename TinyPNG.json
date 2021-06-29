@@ -15,13 +15,12 @@
 				"operationId": "Shrink",
 				"produces": ["image/jpeg"],
 				"parameters": [{
-						"name": "Attachment",
+                        "name": "Attachment",
+						"in": "formData",
 						"description": "File body",
 						"required": true,
-						"format": binary,
-						"type": "string"
+						"type": "file"						
 					}					
-					
 				],
 				"responses": {
 					"200": {
