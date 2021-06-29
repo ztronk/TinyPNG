@@ -1,78 +1,109 @@
 {
-	"swagger": "2.0",
-	"info": {
-		"title": "TinyPNG",
-		"description": "API for TinyPNG",
-		"version": "1.0.0.0"
-	},
-	"host": "api.tinify.com",
-	"schemes": ["https"],
-	"paths": {
-		"/shrink": {
-			"post": {
-				"tags": ["shrink"],
-				"description": "Shrink",
-				"operationId": "Shrink",
-				"parameters": [{
-                        "name": "Attachment",
-						"in": "formData",
-						"description": "File body",
-						"required": true,
-						"type": "file"						
-					}					
-				],
-				"responses": {
-					"200": {
-						"description": "File has been added",
-						"schema": {
-							"$ref": "#/definitions/Shrink"
-						}
-					}
-				}
-			}
-		}		
-	},
-	"definitions": {
-		"Shrink": {
-            "required": ["input","output"],
-            "properties": {
-                "input": {
-                    "required": ["size","type"],
-                    "properties": {
-                        "size": {
-                            "type": "number"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    },
-                    "type": "object"
-                },
-                "output": {
-                    "required": ["size", "type", "width", "height", "ratio", "url"],
-                    "properties": {
-                        "size": {
-                            "type": "number"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "width": {
-                            "type": "number"
-                        },
-                        "height": {
-                            "type": "number"
-                        },
-                        "ratio": {
-                            "type": "number"
-                        },
-                        "url": {
-                            "type": "string"
-                        }
-                    },
-                    "type": "object"
-                }
+  "swagger": "2.0",
+  "info": {
+    "title": "TinyPNG",
+    "description": "API for TinyPNG",
+    "version": "1.0.0.0"
+  },
+  "host": "api.tinify.com",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/shrink": {
+      "post": {
+        "tags": [
+          "shrink"
+        ],
+        "description": "Shrink",
+        "operationId": "Shrink",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "Attachment",
+            "in": "formData",
+            "description": "File body",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File has been added",
+            "schema": {
+              "$ref": "#/definitions/Shrink"
             }
-		}
-	}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Shrink": {
+      "required": [
+        "input",
+        "output"
+      ],
+      "properties": {
+        "input": {
+          "required": [
+            "size",
+            "type"
+          ],
+          "properties": {
+            "size": {
+              "type": "number"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "output": {
+          "required": [
+            "size",
+            "type",
+            "width",
+            "height",
+            "ratio",
+            "url"
+          ],
+          "properties": {
+            "size": {
+              "type": "number"
+            },
+            "type": {
+              "type": "string"
+            },
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            },
+            "ratio": {
+              "type": "number"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "BasicAuth": {
+      "type": "basic"
+    },
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-API-Key"
+    }
+  }
 }
