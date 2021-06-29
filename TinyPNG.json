@@ -5,7 +5,6 @@
 		"description": "API for TinyPNG",
 		"version": "1.0.0.0"
 	},
-	"host": "",
 	"schemes": ["https"],
 	"paths": {
 		"https://api.tinify.com/shrink": {
